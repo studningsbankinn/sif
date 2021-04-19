@@ -5,7 +5,7 @@
         <div class="media">
           <div class="media-left">
       <!-- <div class="card-image"> -->
-            <figure class="image is-64x64">
+            <figure class="image is-64x64"> <!-- is-48x48 -->
               <img src="/images/verzlo_logo.jpg" alt="Placeholder image">
             </figure>
           </div>
@@ -30,31 +30,14 @@
         </div>
       </div>
       <!--
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-4">John Smith</p>
-            <p class="subtitle is-6">@johnsmith</p>
-          </div>
-        </div>
-
+        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
         <div class="content">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-          <a href="#">#css</a> <a href="#">#responsive</a>
-          <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
-      </div>
       -->
 
       <!-- Test tabs -->
-      <div class="box">
+      <div class="container box">
         <!--  <div class="tabs is-centered is-boxed">  -->
         <div class="tabs is-boxed">
           <ul>
@@ -103,15 +86,17 @@
             </li>
           </ul>
         </div>
+        <br>
 
         <!-- Statistics / Myndræn framsetning á gögnunum -->
         <div>
           
         </div>
+        <br>
 
         <!-- Spurninga og svara taflan-->
         <div>
-          <table class="table">
+          <table class="table is-striped is-bordered">
             <thead>
               <tr>
                 <th>Spurning</th>
@@ -119,14 +104,6 @@
                 <th>Athugasemd</th>
               </tr>
             </thead>
-            <!--
-            <tfoot>
-              <tr>
-                <th>Spurning</th>
-                <th>Svar</th>
-              </tr>
-            </tfoot>
-            -->
             <tbody>
               <tr
                 v-for="row in this.answers"
@@ -135,7 +112,7 @@
                 <td>{{ row.question }}</td>
                 <td v-if="row.answer === 'true'">
                   <i class="fas fa-thumbs-up"></i>
-                  
+                  Já
                 </td>
                 <td v-else>
                   <i class="fas fa-thumbs-down"></i>
@@ -143,6 +120,7 @@
                 </td>
                 <!-- <td>{{ row.answer }}</td> -->
                 <td>{{ row.comment }}</td>
+                <td>{{ row.questionCategoryName }}</td>
               </tr>
             </tbody>
           </table>
@@ -194,7 +172,7 @@ export default {
   },
   methods: {
     mapUrlToSchool () {
-      const url = window.location.toString()      
+      const url = window.location.toString()
       const parts = url.split('/')
       
       const lastItem = parts[parts.length -1]
@@ -205,7 +183,7 @@ export default {
         'verzlunarskoli-islands': 1
       }
 
-      return map[school]      
+      return map[school]
       
     }
   },
@@ -223,17 +201,21 @@ export default {
       })
   }
 }
+
 </script>
 
 <style>
 
-.sif-color {
+.sif-color, .is-active {
   color: #00a4e3;
+  
 }
 
+/*
 .is-active {
   color: #00a4e3;
 }
+*/
 
 .fa-thumbs-down {
   color: rgb(196, 26, 0);
