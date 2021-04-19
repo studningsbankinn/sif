@@ -53,7 +53,8 @@
 
       <!-- Test tabs -->
       <div class="box">
-        <div class="tabs is-centered is-boxed">
+        <!--  <div class="tabs is-centered is-boxed">  -->
+        <div class="tabs is-boxed">
           <ul>
             <li class="is-active">
               <a>
@@ -99,9 +100,47 @@
             </li>
           </ul>
         </div>
+
+        <!-- Statistics / Myndræn framsetning á gögnunum -->
+        <div>
+        </div>
+
+        <!-- Spurninga og svara taflan-->
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Spurning</th>
+                <th>Svar</th>
+                <th>Athugasemd</th>
+              </tr>
+            </thead>
+            <!--
+            <tfoot>
+              <tr>
+                <th>Spurning</th>
+                <th>Svar</th>
+              </tr>
+            </tfoot>
+            -->
+            <tbody>
+              <tr
+                v-for="row in this.answers"
+                :key="row.id"
+              >
+                <td>{{ row.question }}</td>
+                <td>{{ row.answer }}</td>
+                <td>{{ row.comment }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </div>
 
+    <!-- Upphaflega taflan -->
+    <!--
     <div>
       <table class="table table-striped">
           <thead>
@@ -127,6 +166,7 @@
           </tbody>
         </table>
     </div>
+    -->
     
   </div>
 </template>
