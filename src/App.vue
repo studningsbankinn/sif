@@ -18,7 +18,7 @@
             </div>
             <p class="subtitle is-6">@johnsmith</p>
             <i class="fas fa-globe"></i>
-            <a href="https://www.verslo.is">verslo.is</a>
+            <a href="https://www.verslo.is" class="sif-color">verslo.is</a>
           </div>
           <div class="media-left">
             <p class="title is-5">Tengiliður</p>
@@ -29,6 +29,7 @@
 
         </div>
       </div>
+      <!--
       <div class="card-content">
         <div class="media">
           <div class="media-left">
@@ -50,6 +51,7 @@
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
       </div>
+      -->
 
       <!-- Test tabs -->
       <div class="box">
@@ -58,43 +60,44 @@
           <ul>
             <li class="is-active">
               <a>
-                <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fab fa-accessible-icon" aria-hidden="true"></i></span>
                 <span>Aðgengi</span>
               </a>
             </li>
             <li>
               <a>
-                <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-university" aria-hidden="true"></i></span>
                 <span>Námið</span>
               </a>
             </li>
             <li>
               <a>
-                <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-user-edit" aria-hidden="true"></i></span>
                 <span>Próftaka</span>
               </a>
             </li>
             <li>
               <a>
-                <span class="icon is-small"><i class="fas fa-file-text-o" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-hands-helping" aria-hidden="true"></i></span>
                 <span>Starfsemi</span>
+                <!-- Þjónusta hér í staðin fyrir Starfsemi??? -->
               </a>
             </li>
             <li>
               <a>
-                <span class="icon is-small"><i class="fas fa-file-text-o" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-school" aria-hidden="true"></i></span>
                 <span>Húsnæði</span>
               </a>
             </li>
             <li>
               <a>
-                <span class="icon is-small"><i class="fas fa-file-text-o" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-users" aria-hidden="true"></i></span>
                 <span>Félagslíf</span>
               </a>
             </li>
             <li>
               <a>
-                <span class="icon is-small"><i class="fas fa-file-text-o" aria-hidden="true"></i></span>
+                <span class="icon is-small"><i class="fas fa-universal-access" aria-hidden="true"></i></span>
                 <span>Réttindi</span>
               </a>
             </li>
@@ -103,6 +106,7 @@
 
         <!-- Statistics / Myndræn framsetning á gögnunum -->
         <div>
+          
         </div>
 
         <!-- Spurninga og svara taflan-->
@@ -129,7 +133,15 @@
                 :key="row.id"
               >
                 <td>{{ row.question }}</td>
-                <td>{{ row.answer }}</td>
+                <td v-if="row.answer === 'true'">
+                  <i class="fas fa-thumbs-up"></i>
+                  
+                </td>
+                <td v-else>
+                  <i class="fas fa-thumbs-down"></i>
+                  Nei
+                </td>
+                <!-- <td>{{ row.answer }}</td> -->
                 <td>{{ row.comment }}</td>
               </tr>
             </tbody>
@@ -214,4 +226,21 @@ export default {
 </script>
 
 <style>
+
+.sif-color {
+  color: #00a4e3;
+}
+
+.is-active {
+  color: #00a4e3;
+}
+
+.fa-thumbs-down {
+  color: rgb(196, 26, 0);
+}
+
+.fa-thumbs-up {
+  color: rgb(82, 150, 0);
+}
+
 </style>
