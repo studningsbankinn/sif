@@ -12,21 +12,20 @@
 
     <!-- <div class="media-content"> -->
           <div class="media-left">
-            <p class="title is-4">Verzlunarskóli Íslands</p>
+            <p class="title is-4">{{ place.name }}</p>
             <div class="media-left">
-              Lorem ipsum dolor sit amet,
+                <p v-if="place.description" class="subtitle is-6 no-padding-margin">{{ place.description }}</p>
             </div>
-            <p class="subtitle is-6">@johnsmith</p>
+            <p class="subtitle is-6">blabla</p>
             <i class="fas fa-globe"></i>
-            <a href="https://www.verslo.is" class="sif-color">verslo.is</a>
+            <a :href="'https://' + place.website" class="sif-color">{{ place.website }}</a>
           </div>
           <div class="media-left">
             <p class="title is-5">Tengiliður</p>
-            <p class="media-left">Berglind Helga Sigurþórsdóttir</p>
-            <p class="media-left">Sími 5900615</p>
+            <p v-if="place.contact" class="media-left">{{ place.contact }}</p>
+            <p v-if="place.email" class="media-left">Netfang {{ place.email }}</p>
+            <p v-if="place.phone" class="media-left">Sími {{ place.phone }}</p>
           </div>
-
-
         </div>
       </div>
       <!--
@@ -35,6 +34,53 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </div>
       -->
+      
+      <!-- Test tabs #2 -->
+      <div id="app">
+        <div class="tabs">
+          <ul>
+            <li
+              v-for="tab in allTabs"
+              :key="tab"
+              :class="{'is-active': selectedTab === tab}">
+                <a @click="selectTab(tab)">
+                  <span class="icon is-small"><i :class="icons[tab]" aria-hidden="true"></i></span>
+                  <span>{{ tab }}</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <table class="table is-striped is-bordered">
+            <thead>
+              <tr>
+                <th>Spurning</th>
+                <th>Svar</th>
+                <th>Athugasemd</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="row in this.categoryAnswers"
+                :key="row.id"
+              >
+                <td>{{ row.question }}</td>
+                <td v-if="row.answer === 'true'">
+                  <i class="fas fa-thumbs-up"></i>
+                  Já
+                </td>
+                <td v-else>
+                  <i class="fas fa-thumbs-down"></i>
+                  Nei
+                </td>
+                <!-- <td>{{ row.answer }}</td> -->
+                <td>{{ row.comment }}</td>
+                <td>{{ row.questionCategoryName }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <!-- Test tabs -->
       <div class="container box">
@@ -167,7 +213,12 @@ export default {
   name: 'App',
   data () {
     return {
-      answers: []
+      answers: [],
+      selectedTab: 'Aðgengi',
+      place: '',
+      icons: {
+        'Aðgengi/rými': 'fab fa-accessible-icon',
+      }
     }
   },
   methods: {
@@ -184,10 +235,24 @@ export default {
       }
 
       return map[school]
-      
+    },
+
+    selectTab (tab) {
+      this.selectedTab = tab
     }
   },
-  created() {    
+  computed: {
+    categoryAnswers () {
+      return this.answers.filter(item => item.questionCategoryName === this.selectedTab)
+    },
+
+    allTabs () {
+      return this.answers
+        .map(item => item.questionCategoryName)
+        .filter((item, index, self) => self.indexOf(item) === index)
+    }
+  },
+  created() {
     console.log('created')
     const schoolId = this.mapUrlToSchool()
     agent
@@ -195,6 +260,16 @@ export default {
       .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
       .then(data => {
         this.answers = data.body
+      })
+      .catch(e => {
+        console.log(e)
+      })
+    
+    agent
+      .get(process.env.STUDNINGSBANKINN_API_URL + '/places?id=' + schoolId)
+      .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
+      .then(data => {
+        this.place = data.body[0]
       })
       .catch(e => {
         console.log(e)
@@ -223,6 +298,11 @@ export default {
 
 .fa-thumbs-up {
   color: rgb(82, 150, 0);
+}
+
+.no-padding-margin {
+  margin: 0;
+  padding-top: 0;
 }
 
 </style>
