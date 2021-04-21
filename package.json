@@ -26,8 +26,7 @@
     "superagent": "^6.1.0",
     "tiny-cookie": "^2.3.1",
     "vue": "~2.6.11",
-    "vue-router": "^3.1.5",
-    "vue-the-mask": "^0.11.1"
+    "vue-router": "^3.1.5"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.2.0",
