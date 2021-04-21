@@ -133,7 +133,8 @@ export default {
       const school = (lastItem === '') ? secondLastItem : lastItem
 
       const map = {
-        'verzlunarskoli-islands': 1
+        'verzlunarskoli-islands': 1,
+        'fjolbrautaskolinn-vid-armula': 6
       }
 
       return map[school]
