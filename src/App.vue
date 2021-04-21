@@ -21,188 +21,56 @@
             <a :href="'https://' + place.website" class="sif-color">{{ place.website }}</a>
           </div>
           <div class="media-left">
-            <p class="title is-5">Tengiliður</p>
-            <p v-if="place.contact" class="media-left">{{ place.contact }}</p>
-            <p v-if="place.email" class="media-left">Netfang {{ place.email }}</p>
-            <p v-if="place.phone" class="media-left">Sími {{ place.phone }}</p>
+            <p class="title is-5">&nbsp;</p>
+            <p v-if="place.contact" class="media-left">Tengiliður: {{ place.contact }}</p>
+            <p v-if="place.email" class="media-left">Netfang: {{ place.email }}</p>
+            <p v-if="place.phone" class="media-left">Sími: {{ place.phone }}</p>
           </div>
         </div>
-      </div>
-      <!--
-        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </div>
-      -->
-      
+      </div>     
       <!-- Test tabs #2 -->
       <div id="app">
-        <div class="tabs">
-          <ul>
-            <li
-              v-for="tab in allTabs"
-              :key="tab"
-              :class="{'is-active': selectedTab === tab}">
-                <a @click="selectTab(tab)">
-                  <span class="icon is-small"><i :class="icons[tab]" aria-hidden="true"></i></span>
-                  <span>{{ tab }}</span>
-                </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <table class="table is-striped is-bordered">
-            <thead>
-              <tr>
-                <th>Spurning</th>
-                <th>Svar</th>
-                <th>Athugasemd</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="row in this.categoryAnswers"
-                :key="row.id"
-              >
-                <td>{{ row.question }}</td>
-                <td v-if="row.answer === 'true'">
-                  <i class="fas fa-thumbs-up"></i>
-                  Já
-                </td>
-                <td v-else>
-                  <i class="fas fa-thumbs-down"></i>
-                  Nei
-                </td>
-                <!-- <td>{{ row.answer }}</td> -->
-                <td>{{ row.comment }}</td>
-                <td>{{ row.questionCategoryName }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Test tabs -->
-      <div class="container box">
-        <!--  <div class="tabs is-centered is-boxed">  -->
         <div class="tabs is-boxed">
           <ul>
-            <li class="is-active">
-              <a>
-                <span class="icon is-small"><i class="fab fa-accessible-icon" aria-hidden="true"></i></span>
-                <span>Aðgengi</span>
+            <li
+              v-for="tab in categoryTabs"
+              :key="tab"
+              :class="{ 'is-active' : tab === selectedTab }"
+            >
+              <a @click="selectedTab = tab">
+                <span class="icon is-small"><i :class="icons[tab]" aria-hidden="true"></i></span>
+                <span>{{ tab }}</span>
               </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon is-small"><i class="fas fa-university" aria-hidden="true"></i></span>
-                <span>Námið</span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon is-small"><i class="fas fa-user-edit" aria-hidden="true"></i></span>
-                <span>Próftaka</span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon is-small"><i class="fas fa-hands-helping" aria-hidden="true"></i></span>
-                <span>Starfsemi</span>
-                <!-- Þjónusta hér í staðin fyrir Starfsemi??? -->
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon is-small"><i class="fas fa-school" aria-hidden="true"></i></span>
-                <span>Húsnæði</span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon is-small"><i class="fas fa-users" aria-hidden="true"></i></span>
-                <span>Félagslíf</span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="icon is-small"><i class="fas fa-universal-access" aria-hidden="true"></i></span>
-                <span>Réttindi</span>
-              </a>
-            </li>
+            </li>            
           </ul>
         </div>
-        <br>
 
-        <!-- Statistics / Myndræn framsetning á gögnunum -->
-        <div>
-          
-        </div>
-        <br>
-
-        <!-- Spurninga og svara taflan-->
-        <div>
-          <table class="table is-striped is-bordered">
-            <thead>
-              <tr>
-                <th>Spurning</th>
-                <th>Svar</th>
-                <th>Athugasemd</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="row in this.answers"
-                :key="row.id"
-              >
-                <td>{{ row.question }}</td>
-                <td v-if="row.answer === 'true'">
-                  <i class="fas fa-thumbs-up"></i>
-                  Já
-                </td>
-                <td v-else>
-                  <i class="fas fa-thumbs-down"></i>
-                  Nei
-                </td>
-                <!-- <td>{{ row.answer }}</td> -->
-                <td>{{ row.comment }}</td>
-                <td>{{ row.questionCategoryName }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Upphaflega taflan -->
-    <!--
-    <div>
-      <table class="table table-striped">
+        <table class="table is-striped is-bordered is-fullwidth">
           <thead>
             <tr>
-              <td>Skóli</td>
-              <td>Flokkur</td>
-              <td>Spurning</td>
-              <td>Svar</td>          
-              <td>Athugasemd</td>
+              <th width="50%">Spurning</th>
+              <th width="5%">Svar</th>
+              <th width="45%">Athugasemd</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              v-for="row in this.answers"
+              v-for="row in this.categoryAnswers"
               :key="row.id"
             >
-              <td>{{ row.placeName }}</td>
-              <td>{{ row.questionCategoryName }}</td>
-              <td>{{ row.question }}</td>
-              <td>{{ row.answer }}</td>          
-              <td>{{ row.comment }}</td>
+              <td>{{ row.question }}</td>              
+              <td v-if="row.answer === true">
+                <i class="fas fa-thumbs-up"></i>
+                Já
+              </td>
+              <td v-else>
+                <i class="fas fa-thumbs-down"></i>
+                Nei
+              </td>                
+              <td>{{ row.comment }}</td>                
             </tr>
           </tbody>
         </table>
-    </div>
-    -->
     
   </div>
 </template>
@@ -214,7 +82,7 @@ export default {
   data () {
     return {
       answers: [],
-      selectedTab: 'Aðgengi',
+      selectedTab: undefined,
       place: '',
       icons: {
         'Aðgengi/rými': 'fab fa-accessible-icon',
@@ -246,22 +114,23 @@ export default {
       return this.answers.filter(item => item.questionCategoryName === this.selectedTab)
     },
 
-    allTabs () {
+    categoryTabs () {
       return this.answers
         .map(item => item.questionCategoryName)
         .filter((item, index, self) => self.indexOf(item) === index)
     }
   },
   created() {
-    console.log('created')
     const schoolId = this.mapUrlToSchool()
     agent
       .get(process.env.STUDNINGSBANKINN_API_URL + '/answers?placeId=' + schoolId)
       .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
       .then(data => {
         this.answers = data.body
+        this.selectedTab = this.selectedTab = this.categoryTabs[0]
       })
       .catch(e => {
+        // Do some error handling
         console.log(e)
       })
     
@@ -272,6 +141,7 @@ export default {
         this.place = data.body[0]
       })
       .catch(e => {
+        // Do some error handling
         console.log(e)
       })
   }
