@@ -103,11 +103,7 @@ export default {
       }
 
       return map[school]
-    },
-
-    selectTab (tab) {
-      this.selectedTab = tab
-    }
+    },    
   },
   computed: {
     categoryAnswers () {
