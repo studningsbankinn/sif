@@ -29,7 +29,7 @@
         </div>
       </div>     
       <!-- Test tabs #2 -->
-      <div id="app">
+      <div>
         <div class="tabs is-boxed">
           <ul>
             <li
