@@ -34,6 +34,8 @@ export default {
         datasets: [{
           fill: true,
           data: this.calculate(labels),
+          backgroundColor: 'rgba(0, 164, 227, 0.5)',
+          borderColor: 'rgba(0, 164, 227, 1)'
         }]
       }   
       

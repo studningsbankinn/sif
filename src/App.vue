@@ -1,6 +1,6 @@
 <template>
-<div>
-  <div class="columns">
+<div class="container box">
+  <div class="columns">    
     <div class="column is-12">
       <Search :places="places" @select="selectPlace" />
     </div>
@@ -61,13 +61,16 @@ export default {
     }
   },
   created () {
-    this.getPlaces()
+    this.getPlaces().then(() => {
+      const place = localStorage.getItem('SIF_SELECTED_PLACE')    
+      if (place) {
+        this.place = JSON.parse(place)      
+      } else {
+        this.place = this.places[0]
+      }
 
-    const place = localStorage.getItem('SIF_SELECTED_PLACE')
-    if (place) {
-      this.place = JSON.parse(place)
-      this.getAnswers()
-    }        
+      return this.getAnswers()
+    })    
   },
   methods: {
     selectPlace (place) {
@@ -83,7 +86,7 @@ export default {
         .get(process.env.STUDNINGSBANKINN_API_URL + '/places')
         .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
         .then(data => {
-          this.places = data.body        
+          this.places = data.body
         })      
     },
     getAnswers () {
@@ -105,7 +108,10 @@ export default {
 </script>
 
 <style>
-
+html {
+  padding: 1em;
+  background: rgba(0, 164, 227, 0.3)
+}
 .sif-color, .is-active {
   color: #00a4e3;
 

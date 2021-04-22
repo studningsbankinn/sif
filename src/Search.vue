@@ -5,7 +5,7 @@
       <div class="control has-icons-left has-icons-right">
         <input
           :value="search"
-          class="input"
+          class="input is-medium"
           type="text"
           placeholder="Leita eftir skóla"
           @focus="showTopResults"
@@ -57,7 +57,7 @@ export default {
     clearResults () {
       setTimeout(() => {
         this.results = []
-      }, 200)      
+      }, 100)      
     },
     select (place) {
       this.$emit('select', place)
@@ -76,7 +76,17 @@ export default {
 .dropdown,
 .dropdown-trigger,
 .dropdown-menu {
-  width: 100%;
+  width: 100%;  
 }
 
+.dropdown-menu .dropdown-item {
+  font-size: 1rem;  
+}
+.has-icons-right .is-right {  
+  color: #000;
+}
+
+.has-icons-right .is-right:hover {
+  cursor: pointer;
+}
 </style>
