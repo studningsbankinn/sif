@@ -1,66 +1,24 @@
 <template>
 <div>
   <div class="columns">
-    <div class="column is-4">
-      <Card :place="place" />
+    <div class="column is-12">
+      <Search :places="places" @select="selectPlace" />
     </div>
+  </div>
+
+  <div class="columns">
+    <div class="column is-6">
+      <Info :place="place" />
+    </div>  
     <div class="column is-6">
       <Chart :series="answers" />
     </div>
   </div>
 
   <div class="columns">                    
-    <div class="column is-12">
-      <div class="tabs is-boxed">
-        <ul>
-          <li
-            v-for="tab in categoryTabs"
-            :key="tab"
-            :class="{ 'is-active' : tab === selectedTab }"
-          >
-            <a @click="selectedTab = tab">
-              <span class="icon is-small"><i
-                :class="icons[tab]"
-                aria-hidden="true"
-              /></span>
-              <span>{{ tab }}</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <table class="table is-striped is-bordered is-fullwidth">
-        <thead>
-          <tr>
-            <th width="50%">
-              Spurning
-            </th>
-            <th width="5%">
-              Svar
-            </th>
-            <th width="45%">
-              Athugasemd
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="row in this.categoryAnswers"
-            :key="row.id"
-          >
-            <td>{{ row.question }}</td>
-            <td v-if="row.answer === true">
-              <i class="fas fa-thumbs-up" />
-              Já
-            </td>
-            <td v-else>
-              <i class="fas fa-thumbs-down" />
-              Nei
-            </td>
-            <td>{{ row.comment }}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="column is-12">      
+      <Tabs :list="categoryTabs" @select="selectTab" />
+      <Answers :list="categoryAnswers" />
     </div>
   </div>
 </div>  
@@ -68,30 +26,34 @@
 
 <script>
 import agent from 'superagent'
+import Search from './Search'
+import Info from './Info'
 import Chart from './Chart'
-import Card from './Card'
+import Tabs from './Tabs'
+import Answers from './Answers'
 
 export default {
   name: 'App',
   components: {
-    Chart,
-    Card
+    Search,
+    Info,
+    Chart,    
+    Tabs,
+    Answers
   },
   data () {
     return {
       answers: [],
-      selectedTab: undefined,
-      place: '',
-      icons: {
-        'Aðgengi/rými': 'fab fa-accessible-icon'
-      }
+      tab: undefined,
+      place: {},
+      places: [],
+      
     }
-  },
+  },  
   computed: {
     categoryAnswers () {
-      return this.answers.filter(item => item.questionCategoryName === this.selectedTab)
+      return this.answers.filter(item => item.questionCategoryName === this.tab)
     },
-
     categoryTabs () {
       return this.answers
         .map(item => item.questionCategoryName)
@@ -99,46 +61,44 @@ export default {
     }
   },
   created () {
-    const schoolId = this.mapUrlToSchool()
-    agent
-      .get(process.env.STUDNINGSBANKINN_API_URL + '/answers?placeId=' + schoolId)
-      .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
-      .then(data => {
-        this.answers = data.body
-        this.selectedTab = this.selectedTab = this.categoryTabs[0]
-      })
-      .catch(e => {
-        // Do some error handling
-        console.log(e)
-      })
+    this.getPlaces()
 
-    agent
-      .get(process.env.STUDNINGSBANKINN_API_URL + '/places?id=' + schoolId)
-      .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
-      .then(data => {
-        this.place = data.body[0]
-      })
-      .catch(e => {
-        // Do some error handling
-        console.log(e)
-      })
+    const place = localStorage.getItem('SIF_SELECTED_PLACE')
+    if (place) {
+      this.place = JSON.parse(place)
+      this.getAnswers()
+    }        
   },
   methods: {
-    mapUrlToSchool () {
-      const url = window.location.toString()
-      const parts = url.split('/')
-
-      const lastItem = parts[parts.length - 1]
-      const secondLastItem = parts[parts.length - 2]
-      const school = (lastItem === '') ? secondLastItem : lastItem
-
-      const map = {
-        'verzlunarskoli-islands': 1,
-        'fjolbrautaskolinn-vid-armula': 6
-      }
-
-      return map[school]
-    }
+    selectPlace (place) {
+      this.place = place
+      localStorage.setItem('SIF_SELECTED_PLACE', JSON.stringify(place))
+      this.getAnswers()
+    },
+    selectTab (tab) {
+      this.tab = tab
+    },
+    getPlaces () {
+      return agent
+        .get(process.env.STUDNINGSBANKINN_API_URL + '/places')
+        .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
+        .then(data => {
+          this.places = data.body        
+        })      
+    },
+    getAnswers () {
+      return agent
+        .get(process.env.STUDNINGSBANKINN_API_URL + '/answers?placeId=' + this.place.id)
+        .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
+        .then(data => {
+          this.answers = data.body
+          this.selectedTab = this.selectedTab = this.categoryTabs[0]
+        })
+        .catch(e => {
+          // Do some error handling
+          console.log(e)
+        })
+    }    
   }
 }
 
