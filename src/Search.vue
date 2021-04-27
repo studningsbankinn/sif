@@ -10,18 +10,18 @@
           placeholder="Leita eftir skóla"
           @focus="showTopResults"
           @blur="clearResults"
-          @input="searchInput"          
+          @input="searchInput"
         />
         <span class="icon is-small is-left">
           <i class="fa fa-search"></i>
-        </span>                        
+        </span>
         <span class="icon is-small is-right">
           <i class="fa fa-angle-down"></i>
-        </span>    
+        </span>
       </div>
     </div>
   </div>
-  <div class="dropdown-menu" role="menu">    
+  <div class="dropdown-menu" role="menu">
     <div class="dropdown-content">
       <a
         v-for="place in results"
@@ -30,7 +30,7 @@
         @click="select(place)"
       >
         {{ place.name }}
-      </a>      
+      </a>
     </div>
   </div>
 </div>
@@ -42,14 +42,14 @@ export default {
     places: {
       type: Array,
       default: () => []
-    },    
+    },
   },
   data () {
     return {
       search: '',
       results: ''
     }
-  },      
+  },
   methods: {
     showTopResults () {
       this.results = this.places.slice(0,10)
@@ -57,15 +57,15 @@ export default {
     clearResults () {
       setTimeout(() => {
         this.results = []
-      }, 100)      
+      }, 100)
     },
     select (place) {
       this.$emit('select', place)
     },
     searchInput(e) {
-      this.search = e.target && e.target.value      
+      this.search = e.target && e.target.value
 
-      this.results = this.places.filter(place => place.name.toUpperCase().includes(this.search.toUpperCase()))      
+      this.results = this.places.filter(place => place.name.toUpperCase().includes(this.search.toUpperCase()))
     },
   },
 }
@@ -76,13 +76,13 @@ export default {
 .dropdown,
 .dropdown-trigger,
 .dropdown-menu {
-  width: 100%;  
+  width: 100%;
 }
 
 .dropdown-menu .dropdown-item {
-  font-size: 1rem;  
+  font-size: 1rem;
 }
-.has-icons-right .is-right {  
+.has-icons-right .is-right {
   color: #000;
 }
 

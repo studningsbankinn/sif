@@ -1,6 +1,6 @@
 <template>
 <div class="container box">
-  <div class="columns">    
+  <div class="columns">
     <div class="column is-12">
       <Search :places="places" @select="selectPlace" />
     </div>
@@ -38,9 +38,9 @@
   </div>
   
   <div class="columns">
-  <div class="column is-12">    
-    <Footer />
-  </div>
+    <div class="column is-12">    
+      <Footer />
+    </div>
 </div>  
 </template>
 
@@ -59,7 +59,7 @@ export default {
   components: {
     Search,
     Info,
-    Chart,    
+    Chart,
     Tabs,
     Answers,
     Welcome,
@@ -86,7 +86,7 @@ export default {
   },
   created () {
     this.getPlaces().then(() => {
-      const place = localStorage.getItem('SIF_SELECTED_PLACE')    
+      const place = localStorage.getItem('SIF_SELECTED_PLACE')
       if (place) {
         this.place = JSON.parse(place)
         return this.getAnswers()  
@@ -109,7 +109,7 @@ export default {
         .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
         .then(data => {
           this.places = data.body
-        })      
+        })
     },
     getAnswers () {
       return agent
@@ -138,12 +138,6 @@ html {
   color: #00a4e3;
 
 }
-
-/*
-.is-active {
-  color: #00a4e3;
-}
-*/
 
 .fa-thumbs-down {
   color: rgb(196, 26, 0);
