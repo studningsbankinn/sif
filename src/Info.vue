@@ -11,8 +11,8 @@
           <span class="icon-text">
             <span class="icon is-small">
               <i class="fas fa-user"></i>
-            </span>            
-            <span>Tengiliður:</span>                  
+            </span>
+            <span>Tengiliður:</span>
           </span>
         </th>
         <td>{{ place.contact }}</td>
@@ -22,8 +22,8 @@
           <span class="icon-text">
             <span class="icon is-small">
               <i class="fas fa-phone"></i>
-            </span>            
-            <span>Sími:</span>                  
+            </span>
+            <span>Sími:</span>
           </span>          
         </th>
         <td>{{ place.phone }}</td>
@@ -33,8 +33,8 @@
           <span class="icon-text">
             <span class="icon is-small">
               <i class="fas fa-envelope"></i>
-            </span>            
-            <span>Netfang:</span>                  
+            </span>
+            <span>Netfang:</span>
           </span>
         </th>
         <td>{{ place.email }}</td>
@@ -44,15 +44,15 @@
          <span class="icon-text">
             <span class="icon is-small">
               <i class="fas fa-globe"></i>
-            </span>            
-            <span>Heimasíða:</span>                  
+            </span>
+            <span>Heimasíða:</span>
           </span>
         </th>
         <td>{{ place.website }}</td>
       </tr>
     </tbody>
   </table>
-</div>  
+</div>
 </template>
 
 <script>

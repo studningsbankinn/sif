@@ -8,7 +8,7 @@ export default {
   props: {
     series: {
       type: Array,
-      required: true,    
+      required: true,
     }
   },
   data () {
@@ -20,14 +20,14 @@ export default {
     calculate(labels) {
       return labels.map(label => {
         const category = this.series.filter(item => item.questionCategoryName === label)
-        const count = category.length        
-        const yesCount = category.filter(item => item.answer).length        
+        const count = category.length
+        const yesCount = category.filter(item => item.answer).length
         return Math.round(yesCount/count * 100)
-      })      
-    }   
+      })
+    }
   },
   watch: {
-    series (val)  {      
+    series (val)  {
       const labels = val.map(item => item.questionCategoryName).filter((item, index, self) => self.indexOf(item) === index)
       this.radarchart.data = {
         labels,
@@ -37,7 +37,7 @@ export default {
           backgroundColor: 'rgba(0, 164, 227, 0.5)',
           borderColor: 'rgba(0, 164, 227, 1)'
         }]
-      }   
+      }
       
       this.radarchart.update()
     }
@@ -49,7 +49,7 @@ export default {
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: {          
+          plugins: {
             legend: false
           },
           scale: {
