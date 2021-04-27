@@ -6,11 +6,11 @@
       :key="tab"
       :class="{ 'is-active' : tab === selected }"
     >
-      <a @click="select(tab)">        
+      <a @click="select(tab)">
           <span class="icon is-small">
             <i :class="icons[tab]"></i>
-          </span>        
-          <span>{{ tab }}</span>        
+          </span>
+          <span>{{ tab }}</span>
       </a>
     </li>
   </ul>
@@ -29,7 +29,13 @@ export default {
     return {
       selected: undefined,
       icons: {
-        'Aðgengi/rými': 'fab fa-accessible-icon'
+        'Aðgengi/rými': 'fab fa-accessible-icon',
+        'Námið': 'fas fa-university',
+        'Próftaka': 'fas fa-user-edit',
+        'Starfsemi skólans': 'fas fa-hands-helping',
+        'Önnur húsnæðismál': 'fas fa-school',
+        'Réttindi nemenda': 'fas fa-universal-access',
+        'Félagslífið': 'fas fa-users'
       }
     }
   },
@@ -39,7 +45,7 @@ export default {
     }
   },
   methods: {
-    select (tab) {      
+    select (tab) {
       this.selected = tab
       this.$emit('select', tab)
     }
