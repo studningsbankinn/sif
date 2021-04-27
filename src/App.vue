@@ -6,7 +6,19 @@
     </div>
   </div>
 
-  <div class="columns">
+  <div
+    v-if="!place"
+    class="columns"
+  >
+    <div class="column is-12">
+      <Welcome />
+    </div>
+  </div>
+
+  <div
+    v-if="place"
+    class="columns"
+  >
     <div class="column is-6">
       <Info :place="place" />
     </div>  
@@ -15,11 +27,19 @@
     </div>
   </div>
 
-  <div class="columns">                    
+  <div
+    v-if="place"
+    class="columns"
+  >
     <div class="column is-12">      
       <Tabs :list="categoryTabs" @select="selectTab" />
       <Answers :list="categoryAnswers" />
     </div>
+  </div>
+  
+  <div class="columns">
+  <div class="column is-12">    
+    <Footer />
   </div>
 </div>  
 </template>
@@ -31,6 +51,8 @@ import Info from './Info'
 import Chart from './Chart'
 import Tabs from './Tabs'
 import Answers from './Answers'
+import Footer from './Footer'
+import Welcome from './Welcome'
 
 export default {
   name: 'App',
@@ -39,13 +61,15 @@ export default {
     Info,
     Chart,    
     Tabs,
-    Answers
+    Answers,
+    Welcome,
+    Footer
   },
   data () {
     return {
       answers: [],
       tab: undefined,
-      place: {},
+      place: undefined,
       places: [],
       
     }
@@ -64,16 +88,14 @@ export default {
     this.getPlaces().then(() => {
       const place = localStorage.getItem('SIF_SELECTED_PLACE')    
       if (place) {
-        this.place = JSON.parse(place)      
-      } else {
-        this.place = this.places[0]
-      }
-
-      return this.getAnswers()
+        this.place = JSON.parse(place)
+        return this.getAnswers()  
+      }      
     })    
   },
   methods: {
     selectPlace (place) {
+      console.log('velja', place)
       this.place = place
       localStorage.setItem('SIF_SELECTED_PLACE', JSON.stringify(place))
       this.getAnswers()
