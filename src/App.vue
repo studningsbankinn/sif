@@ -1,5 +1,6 @@
 <template>
-<div class="container box">
+<div class="box">
+
   <div class="columns">
     <div class="column is-12">
       <Search :places="places" @select="selectPlace" />
@@ -41,6 +42,8 @@
     <div class="column is-12">    
       <Footer />
     </div>
+  </div>
+  
 </div>  
 </template>
 
@@ -53,6 +56,7 @@ import Tabs from './Tabs'
 import Answers from './Answers'
 import Footer from './Footer'
 import Welcome from './Welcome'
+import InfoModal from './Modal'
 
 export default {
   name: 'App',
@@ -63,7 +67,8 @@ export default {
     Tabs,
     Answers,
     Welcome,
-    Footer
+    Footer,
+    InfoModal
   },
   data () {
     return {
@@ -71,7 +76,7 @@ export default {
       tab: undefined,
       place: undefined,
       places: [],
-      
+      modalType: undefined
     }
   },  
   computed: {
@@ -123,17 +128,19 @@ export default {
           // Do some error handling
           console.log(e)
         })
-    }    
+    },
+    openModal(type) {
+      this.modalType = type
+    },
+    closeModal() {
+      this.modalType = undefined
+    }
   }
 }
 
 </script>
 
 <style>
-html {
-  padding: 1em;
-  background: rgba(0, 164, 227, 0.3)
-}
 .sif-color, .is-active {
   color: #00a4e3;
 
