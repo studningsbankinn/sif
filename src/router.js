@@ -8,18 +8,18 @@ export default new Router({
   routes: [
     {
       name: 'Welcome',
-      path: '/',
-      alias: '/velkomin',
+      path: '/studningsbanki',
+      alias: '/studningsbanki/velkomin',
       component: () => import('./pages/Welcome.vue')
     },    
     {
       name: 'About',
-      path: '/um',
+      path: '/studningsbanki/um',
       component: () => import('./pages/About.vue')
     },
     {
       name: 'Information',
-      path: '/upplysingar',
+      path: '/studningsbanki/upplysingar',
       component: () => import('./pages/Information.vue')
     },    
     {

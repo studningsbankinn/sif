@@ -11,7 +11,7 @@
 
     <div class="navbar-end">      
       <router-link
-        to="/velkomin"
+        to="/studningsbanki/velkomin"
         class="navbar-item"
         active-class="is-active"
       >      
@@ -19,7 +19,7 @@
       </router-link>      
 
       <router-link
-        to="/um"
+        to="/studningsbanki/um"
         class="navbar-item"
         active-class="is-active"
       >      
@@ -27,7 +27,7 @@
       </router-link>      
 
       <router-link
-        to="/upplysingar"
+        to="/studningsbanki/upplysingar"
         class="navbar-item"
         active-class="is-active"
       >      
