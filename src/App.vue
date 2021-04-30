@@ -1,7 +1,7 @@
 <template>
 <div class="box">
 
-<nav class="navbar" role="navigation" aria-label="main navigation">  
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-menu">
     <div class="navbar-start">
       <div class="navbar-item">
@@ -9,36 +9,36 @@
       </div>
     </div>
 
-    <div class="navbar-end">      
+    <div class="navbar-end">
       <router-link
         to="/studningsbanki/velkomin"
         class="navbar-item"
         active-class="is-active"
-      >      
+      >
         Velkomin
-      </router-link>      
+      </router-link>
 
       <router-link
         to="/studningsbanki/um"
         class="navbar-item"
         active-class="is-active"
-      >      
+      >
         Um Stuðningsbankann
-      </router-link>      
+      </router-link>
 
       <router-link
         to="/studningsbanki/upplysingar"
         class="navbar-item"
         active-class="is-active"
-      >      
+      >
         Nytsamlegar upplýsingar
-      </router-link>      
+      </router-link>
     </div>
   </div>
 </nav>
 <router-view />
-  
-</div>  
+
+</div>
 </template>
 
 <script>
@@ -59,12 +59,12 @@ export default {
     this.getPlaces()
   },
   methods: {
-    selectPlace (place) {     
+    selectPlace (place) {
       this.$router.push({
         name: 'School',
         params: { id: place.id}
       })
-    },    
+    },
     getPlaces () {
       return agent
         .get(process.env.STUDNINGSBANKINN_API_URL + '/places')
@@ -72,7 +72,7 @@ export default {
         .then(data => {
           this.places = data.body
         })
-    }    
+    }
   }
 }
 
@@ -111,4 +111,4 @@ nav {
   margin-bottom: 1.5em;
 }
 </style>
-</style>
+
