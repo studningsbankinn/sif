@@ -1,12 +1,6 @@
 <template>
   <div class="content">
-
-    <h4>
-      Aðstoð við námið
-    </h4>
-
     <div class="content">
-      <br>
       <h6>
         Hljóðbókasafn
       </h6>
