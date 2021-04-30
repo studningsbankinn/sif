@@ -108,7 +108,7 @@ export default {
   flex-shrink: 2;
 }
 nav {
-  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 </style>
 </style>

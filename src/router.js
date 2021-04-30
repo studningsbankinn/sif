@@ -24,7 +24,7 @@ export default new Router({
     },    
     {
       name: 'School',
-      path: '/skoli/:id',
+      path: '/studningsbanki/skoli/:id',
       component: () => import('./pages/School.vue')
     },    
   ]
