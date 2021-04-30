@@ -18,7 +18,7 @@
       </h6>
 
       <p>
-        Hjá félaginu má finna upplýsingar og fræðsluefni um félagið. Jafnframt má finna ýmislegt gagnlegt á netinu s.s. <a href="http://www.lynda.com/">http://www.lynda.com/</a>, svo sem mákennslumyndbönd um allt milli himins og jarðar, s.s. að læra á hugbúnað, hvernig er hægt að bæta sig í að taka ljósmyndir, auka lestrarhraða og margt fleira. Einnig má finna upplýsingar  um tæknilega aðstoð. 
+        Hjá félaginu má finna upplýsingar og fræðsluefni um félagið. Jafnframt má finna ýmislegt gagnlegt á netinu s.s. <a href="http://www.lynda.com/">lynda.com/</a>, svo sem mákennslumyndbönd um allt milli himins og jarðar, s.s. að læra á hugbúnað, hvernig er hægt að bæta sig í að taka ljósmyndir, auka lestrarhraða og margt fleira. Einnig má finna upplýsingar  um tæknilega aðstoð. 
       </p>
 
       <p>
@@ -30,6 +30,7 @@
       </p>
     </div>
     
+    <hr>
 
     <div class="content">
       <h6>
@@ -49,6 +50,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Hljóðbókasafnið – <a href="https://www.hbs.is/">hbs.is</a>
@@ -66,6 +69,8 @@
         Netfang:  hbs@hbs.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -85,6 +90,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Sérkennslutorg, snjalltæki - <a href="https://www.serkennslutorg.is/">serkennslutorg.is</a> 
@@ -103,6 +110,9 @@
       </p>
     </div>
 
+    <hr>
+
+    <br>
     <h4>
       Andlegir- og hegðunarörðugleikar
     </h4>
@@ -133,6 +143,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Geðhjálp - <a href="https://www.gedhjalp.is">gedhjalp.is</a>
@@ -150,6 +162,8 @@
         Netfang: gedhjalp@gedhjalp.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -173,6 +187,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         SEM samtökin - <a href="https://www.sem.is">sem.is</a> 
@@ -190,8 +206,9 @@
         Netfang: sem@sem.is
       </p>
     </div>
+    <hr>
 
-
+    <br>
     <h4>
       Líkam- og skynjunarlegar fatlanir
     </h4>
@@ -218,6 +235,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Félag heyrnarlausra - <a href="https://www.deaf.is">deaf.is</a> 
@@ -235,6 +254,8 @@
         Netfang: deaf@deaf.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -254,6 +275,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Gigtarfélag Íslands - <a href="https://www.gigt.is">gigt.is</a> 
@@ -271,6 +294,8 @@
         Netfang: gigt@gigt.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -290,6 +315,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         MS-félagið - <a href="https://www.msfelag.is">msfelag.is</a> 
@@ -307,6 +334,8 @@
         Netfang: msfelag@msfelag.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -326,6 +355,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Tölvumiðstöð fatlaðs fólks - <a href="https://www.tmf.is">tmf.is</a> 
@@ -344,6 +375,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Heimastyrkur – iðjuþjálfun - <a href="https://www.heimastyrkur.is">heimastyrkur.is</a> 
@@ -361,6 +394,8 @@
         Netfang: gudrun@heimastyrkur.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -384,6 +419,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Réttindagæsla fatlaðs fólks - <a href="https://www.stjornarradid.is/gaeda-og-eftirlitsstofnun/rettindagaesla-fyrir-fatlad-folk/">stjornarradid.is/gaeda-og-eftirlitsstofnun/rettindagaesla-fyrir-fatlad-folk</a> 
@@ -402,6 +439,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Heilabrot – fyrir fólk með heilaskaða - <a href="http://heilabrot.com/">heilabrot.com</a> 
@@ -415,6 +454,8 @@
         Netfang: heilabrot@heilabrot.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -462,7 +503,7 @@
       </p>
     </div>
 
-
+    <br>
     <h4>
       Mál- og félagslegir örðugleikar
     </h4>
@@ -549,7 +590,7 @@
       </p>
     </div>
 
-
+    <br>
     <h4>
       Stuðningstæki - verslanir
     </h4>
@@ -566,7 +607,7 @@
       A4 hjálpartæki fyrir lesblinda: <a href="https://www.a4.is">a4.is</a> 
     </h6>
 
-
+    <br>
     <h4>
       Annað
     </h4>
