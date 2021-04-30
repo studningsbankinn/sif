@@ -471,6 +471,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Öryrkjabandalagið - <a href="https://www.obi.is">obi.is</a> 
@@ -484,6 +486,8 @@
         Er fyrir fólk á aldrinum 18- 35 ára sem er með fötlun, skerðingar, langvinna sjúkdóma eða raskanir.
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -502,6 +506,8 @@
         Netfang: obi@obi.is
       </p>
     </div>
+
+    <hr>
 
     <br>
     <h4>
@@ -522,6 +528,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Sérstaklega má nefna stuðningshópa fyrir einhverfa í Reykjavík - <a href="https://www.einhverfa.is/is/hopar/studningshopar-fyrir-einhverf-ungmenni-og-fullordna-a-hofudborgarsvaedinu">einhverfa.is/is/hopar/studningshopar</a> 
@@ -535,6 +543,8 @@
         Netfang: einhverfa@einhverfa.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -554,6 +564,8 @@
       </p>
     </div>
 
+    <hr>
+
     <div class="content">
       <h6>
         Þjónustu- og þekkingarmiðstöð fyrir blinda, sjónskerta og daufblinda einstaklinga - <a href="http://www.midstod.is/">midstod.is</a> 
@@ -571,6 +583,8 @@
         Netfang: midstod@midstod.is
       </p>
     </div>
+
+    <hr>
 
     <div class="content">
       <h6>
@@ -590,6 +604,8 @@
       </p>
     </div>
 
+    <hr>
+
     <br>
     <h4>
       Stuðningstæki - verslanir
@@ -604,8 +620,10 @@
     </h6>
 
     <h6>
-      A4 hjálpartæki fyrir lesblinda: <a href="https://www.a4.is">a4.is</a> 
+      A4 hjálpartæki fyrir lesblinda: <a href="https://a4.is/voerur?Search=Lesblind&GroupID=&fbclid=IwAR14M3ljiqDUCmFNwJHjWHGx0Kvb4MXBuMVA_T9gqcpeqhFprAjLC5WDJv0">a4.is</a> 
     </h6>
+
+    <hr>
 
     <br>
     <h4>
