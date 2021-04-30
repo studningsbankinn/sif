@@ -20,10 +20,11 @@
       <img src="../images/hljodbokasafn_logo.png" alt="Hljóðbókasafn Íslands Logo">
       <br>
     </div>
-    
+
+    <hr>
 
     <div class="content">
-      <br>
+
       <h6>
         Árnastofnun
       </h6>
@@ -40,7 +41,6 @@
           Hér að neðan eru hlekkir inn á undirsíður Árnastofnunar:
         </u>
       </i>
-      
 
       <p>
         Beygingarlýsing íslensks nútímamáls <a href="https://bin.arnastofnun.is/">(BÍN)</a> er síða þar sem hægt er að setja inn flest íslensk orð og sjá hvernig þau beygjast. <br>
@@ -54,8 +54,10 @@
       <br>
     </div>
 
+    <hr>
+
     <div class="content">
-      <br>
+
       <h6>
         Félag lesblindra á Íslandi
       </h6>
@@ -72,8 +74,9 @@
       <br>
     </div>
 
+    <hr>
+
     <div class="content">
-      <br>
       <h6>
         Rauði krossinn
       </h6>
