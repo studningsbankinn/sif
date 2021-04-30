@@ -1,64 +1,102 @@
 <template>
   <div class="content">
-Aðstoð við námið 
+    <div class="content">
+      <h6>
+        Hljóðbókasafn
+      </h6>
 
-Hljóðbókasafn 
+      <p>
+        Hljóðbókasafn Íslands býður upp á mikið úrval hljóðbóka. Einungis þeir sem ekki geta nýtt sér prentað letur geta sótt um og fengið aðgang að hljóðbókasafninu.
+      </p>
 
-Hljóðbókasafn Íslands býður upp á mikið úrval hljóðbóka. Einungis þeir sem ekki geta nýtt sér prentað letur geta sótt um og fengið aðgang að hljóðbókasafninu.  
+      <p>
+        Hægt er að fá frekari upplýsingar og sækja um aðgang á heimasíðu hljóðbókasafnsins:
+      </p>
 
-Hægt er að fá frekari upplýsingar og sækja um aðgang á heimasíðu hljóðbókasafnsins: 
+      <p>
+        Forsíða - <a href="https://www.HBS.is">HBS.is</a>
+      </p>
 
-Forsíða - HBS.is 
+      <img src="../images/hljodbokasafn_logo.png" alt="Hljóðbókasafn Íslands Logo">
+      <br>
+    </div>
+    
 
- 
+    <div class="content">
+      <br>
+      <h6>
+        Árnastofnun
+      </h6>
 
- 
+  <!-- Spurning að senda póst á Guðrúnu Nordal, kynna verkefnið og nefna að við viljum geta bent á gagnleg tól á þeirra vegum á síðunni okkar…  -->
 
-Árnastofnun 
+      <p>
+        Á vef Árnastofnunar er hægt að nálgast ýmsan fróðleik sem gæti hjálpað við námið. <br>
+        Forsíða: <a href="https://arnastofnun.is/is">Arnastofnun</a> 
+      </p>
 
-Spurning að senda póst á Guðrúnu Nordal, kynna verkefnið og nefna að við viljum geta bent á gagnleg tól á þeirra vegum á síðunni okkar… 
+      <i>
+        <u>
+          Hér að neðan eru hlekkir inn á undirsíður Árnastofnunar:
+        </u>
+      </i>
+      
 
-Á vef Árnastofnunar er hægt að nálgast ýmsan fróðleik sem gæti hjálpað við námið. 
+      <p>
+        Beygingarlýsing íslensks nútímamáls <a href="https://bin.arnastofnun.is/">(BÍN)</a> er síða þar sem hægt er að setja inn flest íslensk orð og sjá hvernig þau beygjast. <br>
+      </p>
 
-Forsíða | Arnastofnun 
+      <p>
+        Undir Árnastofnun er síðan <a href="http://malfong.is/">“Málföng fyrir íslensku”</a>. Þar eru tenglar á málgögn, máltól og vefþjónustu á sviði íslenskrar máltækni. <br>
+      </p>
 
- 
+      <img src="../images/arnastofnun_logo.png" alt="Hljóðbókasafn Íslands Logo">
+      <br>
+    </div>
 
-Hér að neðan eru hlekkir inn á undirsíður Árnastofnunar. 
+    <div class="content">
+      <br>
+      <h6>
+        Félag lesblindra á Íslandi
+      </h6>
 
-Beygingarlýsing íslensks nútímamáls (BÍN) er síða þar sem hægt er að setja inn flest íslensk orð og sjá hvernig þau beygjast. 
+      <p>
+        Félags lesblindra veitir lesblindum stuðning og fræðslu. Þeir geta meðal annars leiðbeint um réttindi til aðstoðar og hvar hægt er að nálgast ýmsa þjónustu. Félagið sinnir einnig margvíslegri hagsmunagæslu í tengslum við skólastarf.
+      </p>
 
-Beygingarlýsing íslensks nútímamáls | Forsíða (arnastofnun.is) 
+      <p>
+        Félag lesblindra: <a href="https://www.lesblindir.is/">lesblindir.is</a>
+      </p>
 
- 
+      <img src="../images/felag_lesblindra_logo.png" alt="Hljóðbókasafn Íslands Logo">
+      <br>
+    </div>
 
-Undir Árnastofnun er síðan “Málföng fyrir íslensku”. Þar eru tenglar á málgögn, máltól og vefþjónustu á sviði íslenskrar máltækni. 
+    <div class="content">
+      <br>
+      <h6>
+        Rauði krossinn
+      </h6>
+      
+      <p>
+        Rauði krossinn um allt land veiri einstaklingum í erfiðleiku margvíslega aðstoð.
+      </p>
 
-Málföng (malfong.is) 
+      <p>
+        Aðstoð í boði - Rauði krossinn: <a href="https://www.raudikrossinn.is/hvad-gerum-vid/adstod-i-bodi/">raudikrossinn.is/hvad-gerum-vid/adstod-i-bodi</a>
+      </p>
 
- 
+      <p>
+        Á Akureyri er námsaðstoð í boði fyrir born og ungmenni:
+      </p>
 
- 
+      <p>
+        Námsaðstoð: <a href="https://www.raudikrossinn.is/hvad-gerum-vid/krakkanam">raudikrossinn.is/hvad-gerum-vid/krakkanam</a>
+      </p>
 
-Félag lesblindra á Íslandi 
+      <img src="../images/raudi_krossinn_logo.png" alt="Hljóðbókasafn Íslands Logo">
+    </div>
 
-Félags lesblindra veitir lesblindum stuðning og fræðslu. Þeir geta meðal annars leiðbeint um réttindi til aðstoðar og hvar hægt er að nálgast ýmsa þjónustu. Félagið sinnir einnig margvíslegri hagsmunagæslu í tengslum við skólastarf. 
-
-Félag lesblindra (lesblindir.is) 
-
- 
-
- 
-
-Rauði krossinn 
-
-Rauði krossinn um allt land veiri einstaklingum í erfiðleiku margvíslega aðstoð.  
-
-Aðstoð í boði | Rauði krossinn (raudikrossinn.is) 
-
-Á Akureyri er námsaðstoð í boði fyrir born og ungmenni: 
-
-Námsaðstoð | Krakkanám | Rauði krossinn (raudikrossinn.is) 
   </div>
 </template>
 
