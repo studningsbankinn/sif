@@ -32,7 +32,7 @@ export default {
     Info,
     Chart,
     Tabs,
-    Answers,    
+    Answers,
   },
   data () {
     return {
