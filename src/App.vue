@@ -1,113 +1,70 @@
 <template>
 <div class="box">
 
-  <div class="columns">
-    <div class="column is-12">
-      <Search :places="places" @select="selectPlace" />
+<nav class="navbar" role="navigation" aria-label="main navigation">  
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <Search :places="places" @select="selectPlace" />
+      </div>
     </div>
-  </div>
 
-  <div
-    v-if="!place"
-    class="columns"
-  >
-    <div class="column is-12">
-      <Welcome />
-    </div>
-  </div>
+    <div class="navbar-end">      
+      <router-link
+        to="/velkomin"
+        class="navbar-item"
+        active-class="is-active"
+      >      
+        Velkomin
+      </router-link>      
 
-  <div
-    v-if="place"
-    class="columns"
-  >
-    <div class="column is-6">
-      <Info :place="place" />
-    </div>  
-    <div class="column is-6">
-      <Chart :series="answers" />
-    </div>
-  </div>
+      <router-link
+        to="/um"
+        class="navbar-item"
+        active-class="is-active"
+      >      
+        Um Stuðningsbankann
+      </router-link>      
 
-  <div
-    v-if="place"
-    class="columns"
-  >
-    <div class="column is-12">      
-      <Tabs :list="categoryTabs" @select="selectTab" />
-      <Answers :list="categoryAnswers" />
+      <router-link
+        to="/upplysingar"
+        class="navbar-item"
+        active-class="is-active"
+      >      
+        Nytsamlegar upplýsingar
+      </router-link>      
     </div>
   </div>
-  
-  <div class="columns">
-    <div class="column is-12">    
-      <Footer />
-    </div>
-  </div>
+</nav>
+<router-view />
   
 </div>  
 </template>
 
 <script>
 import agent from 'superagent'
-import Search from './Search'
-import Info from './Info'
-import Chart from './Chart'
-import Tabs from './Tabs'
-import Answers from './Answers'
-import Footer from './Footer'
-import Welcome from './Welcome'
-import InfoModal from './Modal'
+import Search from './components/Search'
 
 export default {
   name: 'App',
   components: {
-    Search,
-    Info,
-    Chart,
-    Tabs,
-    Answers,
-    Welcome,
-    Footer,
-    InfoModal
+    Search
   },
   data () {
     return {
-      answers: [],
-      tab: undefined,
-      place: undefined,
       places: [],
-      modalType: undefined
-    }
-  },  
-  computed: {
-    categoryAnswers () {
-      return this.answers.filter(item => item.questionCategoryName === this.tab)
-    },
-    categoryTabs () {
-      return this.answers
-        .map(item => item.questionCategoryName)
-        .filter((item, index, self) => self.indexOf(item) === index)
     }
   },
   created () {
-    this.getPlaces().then(() => {
-      const place = localStorage.getItem('SIF_SELECTED_PLACE')
-      if (place) {
-        this.place = JSON.parse(place)
-        return this.getAnswers()  
-      }      
-    })    
+    this.getPlaces()
   },
   methods: {
-    selectPlace (place) {
-      console.log('velja', place)
-      this.place = place
-      localStorage.setItem('SIF_SELECTED_PLACE', JSON.stringify(place))
-      this.getAnswers()
-    },
-    selectTab (tab) {
-      this.tab = tab
-    },
+    selectPlace (place) {     
+      this.$router.push({
+        name: 'School',
+        params: { id: place.id}
+      })
+    },    
     getPlaces () {
       return agent
         .get(process.env.STUDNINGSBANKINN_API_URL + '/places')
@@ -115,26 +72,7 @@ export default {
         .then(data => {
           this.places = data.body
         })
-    },
-    getAnswers () {
-      return agent
-        .get(process.env.STUDNINGSBANKINN_API_URL + '/answers?placeId=' + this.place.id)
-        .set('Authorization', 'Bearer ' + process.env.STUDNINGSBANKINN_API_KEY)
-        .then(data => {
-          this.answers = data.body
-          this.selectedTab = this.selectedTab = this.categoryTabs[0]
-        })
-        .catch(e => {
-          // Do some error handling
-          console.log(e)
-        })
-    },
-    openModal(type) {
-      this.modalType = type
-    },
-    closeModal() {
-      this.modalType = undefined
-    }
+    }    
   }
 }
 
@@ -164,4 +102,13 @@ export default {
   display: block;
 }
 
+.navbar-start .navbar-item {
+  align-items: center;
+  flex-grow: 2;
+  flex-shrink: 2;
+}
+nav {
+  margin-top: 1.5em;
+}
+</style>
 </style>

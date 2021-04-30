@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "build": "parcel build ./src/index.html",
+    "build-neminn": "NODE_ENV=production parcel build ./src/index.html",
     "serve": "parcel ./src/index.html",
     "dev": "parcel watch ./src/index.html",
     "lint": "eslint ./src --ext .js,.vue --fix",

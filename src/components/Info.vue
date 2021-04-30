@@ -1,12 +1,11 @@
 <template>
 <div>
   <h1 class="title is-1">{{ place.name}}</h1>
-  <div class="content">
-     {{ place.description }}
+  <div class="content" v-html="place.description">     
   </div>
   <table class="table">
     <tbody>
-      <tr>
+      <tr v-if="place.contact">
         <th>
           <span class="icon-text">
             <span class="icon is-small">

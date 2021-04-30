@@ -23,21 +23,28 @@ export default {
     list: {
       type: Array,
       default: () => []
+    },
+    default: {
+      type: String,
+      default: undefined
     }
   },
   data() {
     return {
       selected: undefined,
       icons: {
-        'Aðgengi/rými': 'fab fa-accessible-icon',
+        'Aðgengi': 'fab fa-accessible-icon',
         'Námið': 'fas fa-university',
         'Próftaka': 'fas fa-user-edit',
-        'Starfsemi skólans': 'fas fa-hands-helping',
+        'Starfsemi': 'fas fa-hands-helping',
         'Önnur húsnæðismál': 'fas fa-school',
-        'Réttindi nemenda': 'fas fa-universal-access',
+        'Réttindi': 'fas fa-universal-access',
         'Félagslífið': 'fas fa-users'
       }
     }
+  },
+  mounted() {
+    this.selected = this.default
   },
   watch: {
     list (val) {
@@ -45,7 +52,7 @@ export default {
     }
   },
   methods: {
-    select (tab) {
+    select (tab) {      
       this.selected = tab
       this.$emit('select', tab)
     }

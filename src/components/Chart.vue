@@ -56,7 +56,12 @@ export default {
             beginAtZero: true,
             max: 100,
             min: 0,
-            stepSize: 20,
+            stepSize: 20,          
+            ticks: {
+              callback: function (value) {
+                return value + '%'
+              }
+            }
           }
         },
         data: {}
